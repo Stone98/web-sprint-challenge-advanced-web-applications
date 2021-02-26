@@ -57,10 +57,10 @@ const ColorList = ({ colors, updateColors }) => {
                 deleteColor(color)
               }
               }>
-
+                x
               </span>{" "}
-              {color.color}
             </span>
+            {color.color}
             <div
               className="color-box"
               style={{ backgroundColor: color.code.hex }}
