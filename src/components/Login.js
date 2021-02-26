@@ -52,6 +52,7 @@ const Login = () => {
       })
   });
 
+
   return (
     <>
       <form onSubmit={login}>
@@ -70,6 +71,7 @@ const Login = () => {
           name='password'
           onChange={handleChanges}
         />
+        {(formValues.username !== 'lambda' || formValues.username !== 'school') && <p>Username or Password not valid.</p>}
         <button>Login!</button>
       </form>
     </>
