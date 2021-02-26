@@ -1,7 +1,8 @@
-import React from 'react'
-import { axiosWithAuth } from '../helpers/axiosWithAuth';
-import { render, screen } from '@testing-library/react'
-import BubblePage from './BubblePage'
+import React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
+import BubblePage from './BubblePage';
+import { fetchColors as fetchColorsMock } from '../api/fetchColors';
+jest.mock('../api/fetchColors')
 
 const colorsData = [
   { color: 'aliceblue', code: { hex: '#f0f8ff' }, id: 1 },
@@ -19,12 +20,17 @@ const colorsData = [
 
 test('Renders BubblePage without errors', () => {
   // Finish this test
+  fetchColorsMock.mockResolvedValueOnce(colorsData);
   render(<BubblePage />)
+  expect(screen.queryByText(/aliceblue/i)).not.toBeInTheDocument();
 })
 
-test('Fetches data and renders the bubbles on mounting', () => {
+test('Fetches data and renders the bubbles on mounting', async () => {
   // Finish this test
+  fetchColorsMock.mockResolvedValueOnce(colorsData);
   render(<BubblePage />)
+  await waitFor(() => screen.findByTestId("/color/i"));
+  expect(await screen.findByText(/aliceblue/i)).toHaveLength(1);
 })
 
 //Task List
