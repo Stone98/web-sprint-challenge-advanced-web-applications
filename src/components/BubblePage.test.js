@@ -18,12 +18,12 @@ const colorsData = [
 
 test('Renders BubblePage without errors', () => {
   // Finish this test
-  render(<BubblePage />)
+  render(<BubblePage colorList={colorsData} />)
 })
 
 test('Fetches data and renders the bubbles on mounting', () => {
   // Finish this test
-  render(<BubblePage />)
+  render(<BubblePage colorList={colorsData} />);
 })
 
 //Task List

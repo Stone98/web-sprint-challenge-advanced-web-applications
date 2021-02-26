@@ -57,9 +57,9 @@ const ColorList = ({ colors, updateColors }) => {
                 deleteColor(color)
               }
               }>
-                x
+
               </span>{" "}
-              <p>{color.color}</p>
+              {color.color}
             </span>
             <div
               className="color-box"
