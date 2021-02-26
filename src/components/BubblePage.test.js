@@ -29,8 +29,7 @@ test('Fetches data and renders the bubbles on mounting', async () => {
   // Finish this test
   fetchColorsMock.mockResolvedValueOnce(colorsData);
   render(<BubblePage />)
-  await waitFor(() => screen.findByTestId("/color/i"));
-  expect(await screen.findByText(/aliceblue/i)).toHaveLength(1);
+  expect(await screen.findAllByTestId("/color/i")).toHaveLength(11);
 })
 
 //Task List
