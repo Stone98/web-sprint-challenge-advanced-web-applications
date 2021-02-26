@@ -71,7 +71,7 @@ const Login = () => {
           name='password'
           onChange={handleChanges}
         />
-        {(formValues.username !== 'lambda' || formValues.username !== 'school') && <p>Username or Password not valid.</p>}
+        {(formValues.username !== 'Lambda School' || formValues.username !== 'i<3Lambd4') && <p>Username or Password not valid.</p>}
         <button>Login!</button>
       </form>
     </>
